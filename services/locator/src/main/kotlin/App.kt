@@ -26,7 +26,6 @@ import io.ktor.util.toByteArray
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonParsingException
 import messages.RegisterData
 import messages.UserPair
 import messages.UserPosData
@@ -101,8 +100,6 @@ fun main() {
                         return@post
                     }
                     call.respond(HttpStatusCode.BadRequest)
-                } catch (e: JsonParsingException) {
-                    call.respond(HttpStatusCode.BadRequest, "Invalid json")
                 } catch (e: SerializationException) {
                     call.respond(HttpStatusCode.BadRequest, "Invalid data")
                 }
@@ -125,8 +122,6 @@ fun main() {
                         call.sessions.set(AuthSession(newUserId))
                         call.respondRedirect("/")
                     }
-                } catch (e: JsonParsingException) {
-                    call.respond(HttpStatusCode.BadRequest, "Invalid json")
                 } catch (e: SerializationException) {
                     call.respond(HttpStatusCode.BadRequest, "Invalid data")
                 }

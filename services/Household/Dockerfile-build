@@ -1,9 +1,8 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0
+FROM mcr.microsoft.com/dotnet/sdk:3.1-bullseye
 
 RUN apt-get update -yq && \
     apt-get install curl libssl-dev gnupg -yq 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs npm
 
 COPY ./Household /app/Household
 WORKDIR /app/Household/ClientApp

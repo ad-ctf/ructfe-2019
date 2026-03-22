@@ -21,7 +21,7 @@ services:
     memswap_limit: 1G
     volumes:
       - ./dockers/lwe:/app
-    command: gunicorn --chdir /app service.api:app -b :11111 --worker-class aiohttp.GunicornWebWorker --access-logfile -
+    command: gunicorn --chdir /app service.api:app -b :11111 --worker-class aiohttp.worker.GunicornWebWorker --access-logfile -
     links:
       - redis
 
@@ -38,7 +38,7 @@ services:
     memswap_limit: 1G
     volumes:
       - ./dockers/stop:/app
-    command: gunicorn --chdir /app service.api:app -b :11111 --worker-class aiohttp.GunicornWebWorker --access-logfile -
+    command: gunicorn --chdir /app service.api:app -b :11111 --worker-class aiohttp.worker.GunicornWebWorker --access-logfile -
     links:
       - redis
 

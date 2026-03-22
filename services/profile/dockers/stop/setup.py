@@ -5,12 +5,14 @@ from setuptools import find_packages, setup
 
 
 install_requires = [
-    'aiohttp',
-    'aioredis',
+    'aiohttp<3.7',
+    'aioredis<2',
     'async-timeout<4.0,>=3.0',
-    'gunicorn',
-    'redis',
-    'webargs'
+    'attrs<21',
+    'gunicorn<21',
+    'marshmallow<3.14',
+    'redis<4',
+    'webargs<6'
 ]
 
 setup(
