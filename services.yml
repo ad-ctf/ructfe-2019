@@ -1,0 +1,57 @@
+services:
+  engine:
+    name: Engine
+    checker:
+      basedir: ./checkers/engine
+      script: ./checker.py
+      setup: apt-get update && apt-get install -y g++ make libboost-all-dev && python3 -m pip install --break-system-packages aiohttp && make
+    vuln:
+      basedir: ./services/engine
+  household:
+    name: Household
+    checker:
+      basedir: ./checkers/household
+      script: ./checker.py
+      setup: python3 -m pip install --break-system-packages -r requirements.txt
+    vuln:
+      basedir: ./services/Household
+  locator:
+    name: Locator
+    checker:
+      basedir: ./checkers/locator
+      script: ./checker.py
+      setup: python3 -m pip install --break-system-packages requests
+    vuln:
+      basedir: ./services/locator
+  patrol:
+    name: Patrol
+    checker:
+      basedir: ./checkers/patrol
+      script: ./checker.py
+      setup: apt-get update && apt-get install -y default-jre && python3 -m pip install --break-system-packages aiohttp
+    vuln:
+      basedir: ./services/patrol
+  profile:
+    name: Profile
+    checker:
+      basedir: ./checkers/profile
+      script: ./checker.py
+      setup: python3 -m pip install --break-system-packages -r requirements.txt
+    vuln:
+      basedir: ./services/profile
+  radio:
+    name: Radio
+    checker:
+      basedir: ./checkers/radio
+      script: ./checker.py
+      setup: python3 -m pip install --break-system-packages -r requirements.txt
+    vuln:
+      basedir: ./services/radio
+  staff:
+    name: Staff
+    checker:
+      basedir: ./checkers/staff
+      script: ./checker.py
+      setup: python3 -m pip install --break-system-packages -r requirements.txt
+    vuln:
+      basedir: ./services/staff

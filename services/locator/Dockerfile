@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk-slim
+FROM eclipse-temurin:11-jdk
 
 RUN set -eux; \
 	groupadd -r example --gid=999; \

@@ -20,6 +20,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=locator
+      - POSTGRES_HOST_AUTH_METHOD=trust
     mem_limit: 2G
     memswap_limit: 2G
     pids_limit: 128

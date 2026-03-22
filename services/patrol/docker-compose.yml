@@ -10,4 +10,4 @@ services:
     restart: always
     # memory limit
     mem_limit: 2G
-    memswap_limit: 1G
+    memswap_limit: 3G
